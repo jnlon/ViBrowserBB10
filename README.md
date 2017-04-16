@@ -6,7 +6,7 @@ controlled with the physical qwerty keyboard that came with devices like the
 Classic, Passport, etc.
 
 I stopped working on this when there were rumors that BlackBerry was switching
-to Android to future devices. Since it's obvious they were abandoning the
+to Android for future devices. Since it's obvious they were abandoning the
 platform, I thought it pointless to continue development.
 
 It's unfortunate, because I still think phones with physical keyboards rock and
