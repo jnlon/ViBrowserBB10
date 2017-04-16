@@ -1,0 +1,113 @@
+//Code graveyard, stuff not currently in use
+
+/*void ApplicationUI::goClipURL(WebView *webview, bb::system::Clipboard *clip) {
+
+    QUrl url = QUrl::fromUserInput(clip->value("text/plain"));
+
+    if (!url.isValid()) {
+        qDebug() << "clipboard does not contain a valid URL!";
+        return;
+    }
+
+    qDebug() << "Going to " << url.toEncoded();
+    webview->setUrl(QString(url.toEncoded()));
+}*/
+
+
+///
+
+
+/*else if (mode == hint) {
+
+        if (keyStack.at(0) == BACKSPACE) {
+            if (hintFilter.isEmpty()) {
+                stopHintMode(currentTab->tabwebview, currentTab->tabscrollview->scrollViewProperties());
+                return;
+            }
+
+            hintFilter.chop(1);
+            updateHintFilter(currentTab->tabwebview, currentTab->tabtitlebar, hintFilter);
+            return;
+        }
+
+        hintFilter += keyStack.at(0);
+
+        bool stopHints = checkHints(this->hintLines, this->keyStack, this->currentTab->tabwebview);
+
+        if (stopHints) {
+            stopHintMode(currentTab->tabwebview, currentTab->tabscrollview->scrollViewProperties());
+            return;
+        }
+
+        updateHintFilter(currentTab->tabwebview,currentTab->tabtitlebar, hintFilter);
+
+        qDebug() << "Hint filter is:" << hintFilter;
+        //currentTab->tabwebview->postMessage(hintFilter);
+    }*/
+    else if (mode == search) {
+        if (keyStack.at(0) == ENTER) {
+            qDebug() << "searching: " << searchString;
+            searchText(searchString, currentTab->tabwebview, 0);
+            stopSearchTextMode(currentTab->tabwebview, searchString);
+            return;
+        }
+
+        if (keyStack.at(0) == BACKSPACE) {
+            if (searchString.isEmpty()) {
+                stopSearchTextMode(currentTab->tabwebview, "");
+                return;
+            }
+
+            searchString.chop(1);
+            currentTab->tabtitlebar->setText("Search: " + searchString);
+            return;
+        }
+
+        searchString += keyStack.at(0);
+        currentTab->tabtitlebar->setText("Search: " + searchString);
+        qDebug() << "search string is now " << searchString;
+    }
+    
+    
+///
+
+/*void ApplicationUI::SL_toggleInputBar(bool focused) {
+    if (!focused) {
+        currentTab->tabinputbar->setVisible(false);
+        currentTab->tabinputbar->setVisible(false);
+        currentTab->tabinputbar->setVisible(false);
+        currentTab->tabinputbar->setVisible(false);
+        //stopHintMode(currentTab->tabwebview);
+        emit focusWebView();
+    }
+    else {
+        currentTab->tabinputbar->setVisible(true);
+    }
+}*/
+
+///
+
+
+
+/*void ApplicationUI::zoomInPR(float percent, WebSettings *settings) {
+    qDebug() << settings->devicePixelRatio();
+    float oldratio = settings->devicePixelRatio();
+    float newratio = oldratio + ( (oldratio / 100) * percent);
+    settings->setDevicePixelRatio(newratio);
+}*/
+
+//
+
+ //void K_pasteURL(ApplicationUI *appui)      { appui->goClipURL(appui->currentTab->tabwebview, appui->clipboard);}
+ //void K_pasteURLNewTab(ApplicationUI *appui)      { appui->goClipURL(appui->currentTab->tabwebview, appui->clipboard);}
+ 
+//
+ 
+ //From applicationui.hpp
+ 
+/*signals:
+    //using webview->requestFocus() causes
+    //it to be highlighted as if it were text,
+    //but the slot version works fine
+    void focusWebView(void);
+*/
